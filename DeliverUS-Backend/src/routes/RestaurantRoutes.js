@@ -4,11 +4,9 @@ import RestaurantController from '../controllers/RestaurantController.js'
 import { create, update } from '../controllers/validation/RestaurantValidation.js'
 import { hasRole, isLoggedIn } from '../middlewares/AuthMiddleware.js'
 import { checkEntityExists } from '../middlewares/EntityMiddleware.js'
-// import { checkProductHasNotBeenOrdered } from '../middlewares/ProductMiddleware.js'
 import { checkRestaurantOwnership, restaurantHasNoOrders } from '../middlewares/RestaurantMiddleware.js'
 import { handleValidation } from '../middlewares/ValidationHandlingMiddleware.js'
 import { Restaurant } from '../models/models.js'
-// import { handleFilesUpload } from '../middlewares/FileHandlerMiddleware.js'
 
 const loadFileRoutes = function (app) {
   app.route('/restaurants')

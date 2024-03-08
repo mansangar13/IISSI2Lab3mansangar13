@@ -1,18 +1,6 @@
 import { check } from 'express-validator'
 import { checkFileIsImage, checkFileMaxSize } from './FileValidationHelper.js'
-import { User } from '../../models/models.js'
 const maxFileSize = 2000000 // around 2Mb
-
-const checkUserExists = async (value, { req }) => {
-  try {
-    const restaurant = await User.findByPk(req.body.restaurantId)
-    if (restaurant === null) {
-      return Promise.reject(new Error('The userId does not exist.'))
-    } else { return Promise.resolve() }
-  } catch (err) {
-    return Promise.reject(new Error(err))
-  }
-}
 
 const create = [
   check('name').exists().isString().isLength({ min: 1, max: 255 }).trim(),
